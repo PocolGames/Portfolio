@@ -80,7 +80,6 @@ header .subtitle {
 main {
     padding: 40px 20px;
     min-height: 70vh;
-    scroll-margin-top: 0;
 }
 
 @keyframes fadeIn {

@@ -29,7 +29,7 @@ async function loadPageContent(pageName) {
 }
 
 // 페이지 표시 함수
-async function showPage(pageName) {
+async function showPage(pageName, shouldScroll = false) {
     const mainContent = document.getElementById('main-content');
     
     // 로딩 표시
@@ -39,11 +39,16 @@ async function showPage(pageName) {
     const html = await loadPageContent(pageName);
     mainContent.innerHTML = html;
     
-    // 상단으로 스크롤
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    // 탭 클릭 시에만 스크롤 - 항상 헤더 높이 위치로 (제목이 보이게)
+    if (shouldScroll) {
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
+        
+        window.scrollTo({
+            top: headerHeight,
+            behavior: 'smooth'
+        });
+    }
     
     console.log(`Displayed: ${pageName}`);
 }
@@ -68,8 +73,8 @@ function initializeTabs() {
             // 현재 버튼에 active 추가
             this.classList.add('active');
             
-            // 페이지 표시
-            await showPage(targetTab);
+            // 페이지 표시 (탭 클릭 시에는 스크롤 조정)
+            await showPage(targetTab, true);
             
             // URL 해시 업데이트
             window.location.hash = targetTab;
@@ -82,8 +87,8 @@ function initializeTabs() {
         const button = document.querySelector(`[data-tab="${hash}"]`);
         button.click();
     } else {
-        // 기본적으로 intro 페이지 로드
-        showPage('intro');
+        // 기본적으로 intro 페이지 로드 (첫 로드 시에는 스크롤 X)
+        showPage('intro', false);
     }
 }
 
