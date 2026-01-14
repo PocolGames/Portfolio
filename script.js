@@ -41,12 +41,17 @@ async function showPage(pageName, shouldScroll = false) {
     
     // 탭 클릭 시에만 스크롤 - 항상 헤더 높이 위치로 (제목이 보이게)
     if (shouldScroll) {
-        const header = document.querySelector('header');
-        const headerHeight = header ? header.offsetHeight : 0;
-        
-        window.scrollTo({
-            top: headerHeight,
-            behavior: 'smooth'
+        // requestAnimationFrame으로 렌더링 완료 후 실행
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                
+                window.scrollTo({
+                    top: headerHeight,
+                    behavior: 'auto'
+                });
+            });
         });
     }
     
