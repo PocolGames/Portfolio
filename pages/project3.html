@@ -27,131 +27,51 @@
         </div>
     </div>
 
-    <h3>프로젝트 목적</h3>
+    <h3>프로젝트 개요</h3>
     <p class="highlight-text">
         출시를 목표로 하되, <strong>개발 과정에서의 학습과 경험을 최우선</strong>으로 두었습니다.
         특히 마케팅 전략 수립, 멀티플레이 구현, 수익화 모델 설계 등 <strong>상업적 게임 개발의 전 과정</strong>을 경험하는 것을 핵심 목표로 삼았습니다.
     </p>
 
-    <h3>담당 역할: PM + 기획 + 마케팅 전략</h3>
-    <ul>
-        <li>게임 컨셉 기획 및 핵심 룰 설계</li>
-        <li>시장성 분석 및 타겟 유저 선정</li>
-        <li>마케팅 전략 수립 (SNS, 커뮤니티, Steam Next Fest)</li>
-        <li>수익화 모델 설계 (DLC, 인앱 결제, 광고)</li>
-        <li>개발 일정 관리 및 문서화</li>
-        <li>디자인 디렉션 (시대 배경, 색감 일관성)</li>
-        <li>UI/UX 프로그래밍</li>
-    </ul>
+    <h3>담당 역할</h3>
+    <div class="role-section">
+        <ul>
+            <li>게임 컨셉 기획 및 핵심 룰 설계</li>
+            <li>시장성 분석 및 타겟 유저 선정</li>
+            <li>마케팅 전략 수립 (SNS, 커뮤니티, Steam Next Fest)</li>
+            <li>수익화 모델 설계 (DLC, 인앱 결제, 광고)</li>
+            <li>개발 일정 관리 및 문서화</li>
+            <li>디자인 디렉션 (시대 배경, 색감 일관성)</li>
+            <li>UI/UX 프로그래밍</li>
+        </ul>
+    </div>
 
-    <h3>핵심 전략</h3>
-    
-    <h4>① 시장성 기반 장르 선정</h4>
+    <h3>핵심 전략 내용</h3>
     <div class="content-section">
-        <p><strong>기획 의도:</strong> 체스 + 스도쿠라는 누구나 아는 게임으로 접근성 확보</p>
-        
-        <div class="data-table">
-            <h5>시장 분석 (Reddit 커뮤니티 규모)</h5>
-            <table>
-                <tr>
-                    <th>커뮤니티</th>
-                    <th>멤버 수</th>
-                </tr>
-                <tr>
-                    <td>r/chess</td>
-                    <td>1.8M</td>
-                </tr>
-                <tr>
-                    <td>r/chessbeginners</td>
-                    <td>361k</td>
-                </tr>
-                <tr>
-                    <td>r/sudoku</td>
-                    <td>48k</td>
-                </tr>
-                <tr>
-                    <td><strong>합계 (타겟층)</strong></td>
-                    <td><strong>약 2.2M</strong></td>
-                </tr>
-            </table>
-            <p class="note">참고: r/leagueoflegends (8.3M), r/roguelikes+roguelites (189k)</p>
-        </div>
+        <h4>시장성 기반 장르 선정</h4>
+        <p>체스 + 스도쿠라는 누구나 아는 게임으로 접근성 확보. Reddit 커뮤니티 분석 결과 r/chess (1.8M), r/chessbeginners (361k), r/sudoku (48k)로 약 2.2M의 타겟층 확인.</p>
+
+        <h4>수익화 모델 설계</h4>
+        <p>PC (Steam)는 유료 판매 + DLC (기물/맵 스킨) + 시즌 패스로 구성하고, Mobile (Android)는 배너/보상형/전면 광고와 인앱 결제 (스킨, 배틀패스)로 설계.</p>
+
+        <h4>마케팅 전략</h4>
+        <ul>
+            <li><strong>SNS 마케팅:</strong> 개발 과정을 X(구 Twitter)에 지속 공유, 해시태그 활용</li>
+            <li><strong>Discord 커뮤니티:</strong> 유저 피드백 수집 창구 개설</li>
+            <li><strong>Steam Next Fest:</strong> 연 3회 (2월, 6월, 10월) 위시리스트 확보 핵심 기회</li>
+            <li><strong>대학 커뮤니티:</strong> 세명대 페스티벌, 개인/학과 랭킹 시스템</li>
+            <li><strong>체스 유튜버 협업:</strong> "체스 잘하는 사람은 체스도쿠도 잘할까?" 콘텐츠</li>
+        </ul>
+
+        <h4>기술 구현</h4>
+        <p>Unity NetCode for GameObjects로 멀티플레이 완성. P2P 방식으로 서버 비용 최소화하고, Unity 6000.2.0b7 사용하며 백엔드 없이 팀 자체 해결.</p>
     </div>
 
-    <h4>② 수익화 모델 설계</h4>
-    <div class="content-section">
-        <div class="revenue-model">
-            <div>
-                <h5>PC (Steam)</h5>
-                <ul>
-                    <li>유료 판매</li>
-                    <li>DLC (기물/맵 스킨)</li>
-                    <li>시즌 패스 (한정판 스킨)</li>
-                </ul>
-            </div>
-            <div>
-                <h5>Mobile (Android)</h5>
-                <ul>
-                    <li>배너 광고 (메인 메뉴)</li>
-                    <li>보상형 광고 (재화 획득)</li>
-                    <li>전면 광고 (게임 전/후)</li>
-                    <li>인앱 결제 (스킨, 배틀패스)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <h4>③ 마케팅 전략</h4>
-    <div class="marketing-strategy">
-        <div class="strategy-item">
-            <h5>SNS 마케팅 (X, 구 Twitter)</h5>
-            <p>✓ 실행: 개발 과정을 SNS에 지속적으로 공유</p>
-            <p>• 체스말 디자인, 게임플레이 영상 단계별 공개</p>
-            <p>• 해시태그 전략: #indiegame #gamedev #Chess #Sudoku</p>
-        </div>
-
-        <div class="strategy-item">
-            <h5>Discord 커뮤니티</h5>
-            <p>✓ 실행: 커뮤니티 개설 완료</p>
-            <p>• 유저 피드백 수집 창구</p>
-            <p>• (프로토타입 단계 중단으로 유저 모집 미진행)</p>
-        </div>
-
-        <div class="strategy-item">
-            <h5>Steam Next Fest 전략</h5>
-            <p>• 연 3회 진행 (2월, 6월, 10월)</p>
-            <p>• 위시리스트 확보의 핵심 기회</p>
-            <p>• 위시리스트 → 구매 전환율 약 10%</p>
-            <p>• 2월 Next Fest 타겟 (2/24~3/3)</p>
-        </div>
-
-        <div class="strategy-item">
-            <h5>대학 커뮤니티 활용</h5>
-            <p>• 세명대 커뮤니티 페스티벌 계획</p>
-            <p>• 개인 + 학과별 랭킹 시스템</p>
-            <p>• 상위 랭커 보상 (지위 욕구 활용)</p>
-        </div>
-
-        <div class="strategy-item">
-            <h5>체스 유튜버 협업</h5>
-            <p>• "체스 잘하는 사람은 체스도쿠도 잘할까?" 콘텐츠</p>
-            <p>• 타겟 유저 직접 도달</p>
-        </div>
-    </div>
-
-    <h3>기술 구현</h3>
-    <ul>
-        <li>Unity NetCode for GameObjects 멀티플레이 완성</li>
-        <li>P2P 방식으로 서버 비용 최소화</li>
-        <li>Unity 6000.2.0b7</li>
-        <li>백엔드 없이 팀 자체 해결</li>
-    </ul>
-
-    <h3>프로젝트 중단 이유</h3>
+    <h3>프로젝트 중단 결정</h3>
     <div class="problem-solving">
         <div class="problem-item">
             <h4>의사결정 배경</h4>
-            <p><strong>기술적 검증:</strong> 시장성, 기획, 개발 실력 모두 검증됨</p>
+            <p><strong>검증 완료:</strong> 시장성, 기획, 개발 실력 모두 검증됨</p>
             <p><strong>팀 상황:</strong> 팀원 대부분이 체스와 스도쿠에 깊은 이해도 부족</p>
             <p><strong>동기 부족:</strong> 장르에 대한 애정과 만족감을 느끼지 못함</p>
             <p><strong>결론:</strong> 하이리스크 로우리턴 구조로 판단, 조기 중단 결정</p>
@@ -160,15 +80,15 @@
 
     <h3>배운 점</h3>
     <ul class="learnings">
-        <li><strong>마케팅:</strong> 인디게임 마케팅의 핵심은 출시 전 지속적인 노출과 커뮤니티 형성</li>
-        <li><strong>플랫폼 이벤트:</strong> Steam Next Fest 같은 플랫폼 이벤트의 중요성</li>
-        <li><strong>위시리스트:</strong> 위시리스트 확보가 판매량에 미치는 직접적 영향</li>
-        <li><strong>SNS 활용:</strong> SNS 마케팅 및 커뮤니티 운영 실습</li>
-        <li><strong>PM 역량:</strong> 조기 중단 판단도 중요한 프로젝트 관리 역량</li>
-        <li><strong>기술 학습:</strong> Unity NetCode 멀티플레이 구현 경험</li>
+        <li>인디게임 마케팅의 핵심은 출시 전 지속적인 노출과 커뮤니티 형성</li>
+        <li>Steam Next Fest 같은 플랫폼 이벤트의 중요성과 위시리스트 확보 전략</li>
+        <li>SNS 마케팅 및 커뮤니티 운영 실습 경험</li>
+        <li>조기 중단 판단도 중요한 프로젝트 관리 역량임을 인식</li>
+        <li>Unity NetCode 멀티플레이 구현 기술 습득</li>
+        <li>시장성 분석과 실제 팀 동기부여는 별개임을 체득</li>
     </ul>
 
-    <div class="highlight-box">
-        <p>비록 출시까지 이르지는 못했지만, 시장성 분석, 마케팅 전략 기획, 수익화 모델 설계, 멀티플레이 구현 등의 경험은 다음 프로젝트의 튼튼한 기반이 되었습니다.</p>
-    </div>
+    <p class="highlight-text">
+        비록 출시까지 이르지는 못했지만, 시장성 분석, 마케팅 전략 기획, 수익화 모델 설계, 멀티플레이 구현 등의 경험은 다음 프로젝트의 튼튼한 기반이 되었습니다.
+    </p>
 </section>
