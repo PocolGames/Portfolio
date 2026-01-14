@@ -133,6 +133,18 @@ main {
     font-size: 1em;
 }
 
+.project-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
 /* 섹션 */
 h3 {
     font-size: 1.5em;
