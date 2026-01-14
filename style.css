@@ -40,7 +40,7 @@ header .subtitle {
 .tab-navigation {
     background-color: white;
     border-bottom: 2px solid #e0e0e0;
-    position: sticky;
+    position: relative;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -80,15 +80,7 @@ header .subtitle {
 main {
     padding: 40px 20px;
     min-height: 70vh;
-}
-
-.tab-content {
-    display: none;
-    animation: fadeIn 0.3s;
-}
-
-.tab-content.active {
-    display: block;
+    scroll-margin-top: 0;
 }
 
 @keyframes fadeIn {
