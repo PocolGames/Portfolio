@@ -40,7 +40,7 @@ header .subtitle {
 .tab-navigation {
     background-color: white;
     border-bottom: 2px solid #e0e0e0;
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
