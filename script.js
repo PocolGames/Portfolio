@@ -1,5 +1,21 @@
+// Base path 설정 (로컬: '', GitHub Pages: '/Portfolio')
+const BASE_PATH = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+    ? '' 
+    : '/Portfolio';
+
 // 페이지 콘텐츠를 객체로 저장
 const pages = {};
+
+// 이미지 경로 수정 함수
+function fixImagePaths(html) {
+    // 모든 상대 경로를 절대 경로로 변환
+    // project1.html에서 ../images/ → /Portfolio/images/ (GitHub) 또는 /images/ (로컬)
+    return html.replace(/src="\.\.\/images\//g, `src="${BASE_PATH}/images/`)
+               .replace(/src="\.\/images\//g, `src="${BASE_PATH}/images/`)
+               .replace(/src="images\//g, `src="${BASE_PATH}/images/`)
+               .replace(/href="\.\.\/images\//g, `href="${BASE_PATH}/images/`)
+               .replace(/href="\.\/images\//g, `href="${BASE_PATH}/images/`);
+}
 
 // 페이지 로드 함수
 async function loadPageContent(pageName) {
@@ -13,8 +29,9 @@ async function loadPageContent(pageName) {
             throw new Error(`HTTP ${response.status}`);
         }
         const html = await response.text();
-        pages[pageName] = html;
-        return html;
+        const fixedHtml = fixImagePaths(html);
+        pages[pageName] = fixedHtml;
+        return fixedHtml;
     } catch (error) {
         console.error(`Error loading ${pageName}:`, error);
         return `
