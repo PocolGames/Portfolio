@@ -393,6 +393,22 @@ ul ul {
     margin: 10px 0;
 }
 
+.project-card .project-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95em;
+    transition: all 0.3s;
+}
+
+.project-card .project-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+    transform: translateX(5px);
+}
+
 /* 타임라인 */
 .timeline {
     margin: 20px 0;
