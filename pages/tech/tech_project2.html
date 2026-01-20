@@ -31,10 +31,7 @@
 
             <div class="toc-title">목차</div>
             <ul class="toc-list">
-                <li><a href="#refactoring">레거시 코드 리팩토링</a></li>
-                <li><a href="#animation">애니메이션 최적화</a></li>
-                <li><a href="#dev-diary">개발 일지 시스템</a></li>
-                <li><a href="#structure">구조 개선 사례</a></li>
+                <li><a href="#test">테스트</a></li>
             </ul>
         </aside>
 
@@ -42,195 +39,38 @@
         <main class="tech-content">
             <h1>UI/UX 재정비 프로젝트</h1>
 
-            <!-- 레거시 코드 리팩토링 -->
-            <section id="refactoring" class="tech-section">
-                <h2>레거시 코드 리팩토링</h2>
-                
+            <section id="test" class="tech-section">
+                <h2>테스트</h2>
+    
+                <!-- 설명 텍스트 (3줄 정도) -->
                 <p class="tech-description">
-                    소울디바이스 개발 당시 작성한 UI 코드를 분석하고, 높은 의존성과 낮은 가독성 문제를 해결하기 위한 리팩토링을 진행했습니다.
-                    UI 컴포넌트를 기능 단위로 분리하고, 각 컴포넌트 간의 결합도를 낮춰 유지보수성을 크게 향상시켰습니다.
-                    이 과정에서 SOLID 원칙을 적용하여 더 나은 코드 구조를 만들 수 있었습니다.
+                    설명 텍스트
                 </p>
-
+            
+                <!-- 이미지 갤러리 (3개) -->
                 <div class="tech-images">
                     <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot1.gif" alt="리팩토링 전" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">리팩토링 전 구조</div>
+                        <img src="../../images/project2/screenshot1.gif" alt="설명" onclick="openImageModal(this)">
+                        <div class="tech-image-caption">이미지 캡션</div>
                     </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot2.gif" alt="리팩토링 후" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">리팩토링 후 구조</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot3.gif" alt="코드 비교" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">코드 품질 개선</div>
-                    </div>
+                    <!-- 2개 더 반복 -->
                 </div>
 
+                <!-- 코드 블록 (10줄 정도) -->
                 <div class="code-block">
-                    <pre><code>// 리팩토링 전 - 높은 결합도
-public class OldUIManager : MonoBehaviour
+<pre><code>// C# 코드 예시
+public class ExampleClass
 {
-    public Button button;
-    public Text text;
-    public Image image;
-    // 모든 UI 요소가 한 곳에...
+    // 코드 내용
 }
-
-// 리팩토링 후 - 단일 책임 원칙 적용
-public class UIPanel : MonoBehaviour
-{
-    protected virtual void Initialize() { }
-    protected virtual void Show() { }
-    protected virtual void Hide() { }
-}</code></pre>
+</code></pre>
                     <div class="code-explanation">
-                        각 UI 패널이 독립적으로 동작하도록 구조를 개선했습니다.
+                        코드 설명 텍스트
                     </div>
                 </div>
             </section>
 
-            <!-- 애니메이션 최적화 -->
-            <section id="animation" class="tech-section">
-                <h2>애니메이션 최적화</h2>
-                
-                <p class="tech-description">
-                    DOTween 애니메이션의 타이밍과 easing 함수를 일관되게 재정의하여 UI 완성도를 높였습니다.
-                    각 UI 요소의 성격에 맞는 적절한 easing 함수를 선택하고, 애니메이션 시간을 조정하여 사용자 경험을 개선했습니다.
-                    불필요한 애니메이션을 제거하고, 중요한 피드백에 집중하여 전체적인 UI 반응성을 향상시켰습니다.
-                </p>
 
-                <div class="tech-images">
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot1.gif" alt="애니메이션 1" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">버튼 피드백 개선</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot2.gif" alt="애니메이션 2" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">패널 전환 최적화</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot3.gif" alt="애니메이션 3" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">타이밍 조정</div>
-                    </div>
-                </div>
-
-                <div class="code-block">
-                    <pre><code>// 일관된 애니메이션 설정
-public static class AnimationConfig
-{
-    public const float QUICK_DURATION = 0.2f;
-    public const float NORMAL_DURATION = 0.3f;
-    public const Ease POPUP_EASE = Ease.OutBack;
-    public const Ease SLIDE_EASE = Ease.OutQuad;
-}
-
-// 사용 예시
-button.transform.DOScale(1.1f, AnimationConfig.QUICK_DURATION)
-    .SetEase(AnimationConfig.POPUP_EASE);</code></pre>
-                    <div class="code-explanation">
-                        애니메이션 설정을 중앙화하여 일관성을 유지했습니다.
-                    </div>
-                </div>
-            </section>
-
-            <!-- 개발 일지 시스템 -->
-            <section id="dev-diary" class="tech-section">
-                <h2>개발 일지 시스템</h2>
-                
-                <p class="tech-description">
-                    주 5회 개발 과정을 상세히 기록하며 구현 과정뿐 아니라 설계 판단 근거, 발생한 문제, 개선 방향까지 문서화했습니다.
-                    감으로 하던 개발을 언어화하고 정리하는 과정을 통해 개발 사고력을 크게 향상시킬 수 있었습니다.
-                    이러한 기록은 향후 유사한 문제 상황에서 빠른 의사결정을 가능하게 하는 자산이 되었습니다.
-                </p>
-
-                <div class="tech-images">
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot1.gif" alt="개발 일지 1" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">일지 작성 예시</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot2.gif" alt="개발 일지 2" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">문제 해결 과정</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot3.gif" alt="개발 일지 3" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">회고 정리</div>
-                    </div>
-                </div>
-
-                <div class="code-block">
-                    <pre><code>// 개발 일지 템플릿 예시
-/**
- * 날짜: 2024.XX.XX
- * 작업 내용: UI 패널 리팩토링
- * 
- * [설계 판단]
- * - 왜 이 방식을 선택했는가?
- * - 다른 대안은 무엇이었는가?
- * 
- * [발생한 문제]
- * - 어떤 문제가 있었는가?
- * - 어떻게 해결했는가?
- * 
- * [다음 단계]
- * - 무엇을 개선할 것인가?
- */</code></pre>
-                    <div class="code-explanation">
-                        체계적인 일지 작성으로 개발 과정을 명확히 기록했습니다.
-                    </div>
-                </div>
-            </section>
-
-            <!-- 구조 개선 사례 -->
-            <section id="structure" class="tech-section">
-                <h2>구조 개선 사례</h2>
-                
-                <p class="tech-description">
-                    실제 리팩토링 과정에서 개선한 구조적 문제들의 사례를 정리했습니다.
-                    불필요한 의존성 제거, 인터페이스 분리, 책임 분산 등의 기법을 적용하여 코드 품질을 향상시켰습니다.
-                    각 개선 사례마다 Before/After 비교를 통해 개선 효과를 명확히 확인할 수 있었습니다.
-                </p>
-
-                <div class="tech-images">
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot1.gif" alt="구조 개선 1" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">의존성 다이어그램</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot2.gif" alt="구조 개선 2" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">클래스 구조 개선</div>
-                    </div>
-                    <div class="tech-image-item">
-                        <img src="../../images/project2/screenshot3.gif" alt="구조 개선 3" onclick="openImageModal(this)">
-                        <div class="tech-image-caption">성능 비교</div>
-                    </div>
-                </div>
-
-                <div class="code-block">
-                    <pre><code>// 인터페이스 분리 원칙 적용
-public interface IShowable
-{
-    void Show();
-    void Hide();
-}
-
-public interface IUpdatable
-{
-    void UpdateContent();
-}
-
-// 필요한 기능만 구현
-public class SimplePanel : MonoBehaviour, IShowable
-{
-    public void Show() { /* ... */ }
-    public void Hide() { /* ... */ }
-}</code></pre>
-                    <div class="code-explanation">
-                        인터페이스 분리를 통해 불필요한 의존성을 제거했습니다.
-                    </div>
-                </div>
-            </section>
         </main>
     </div>
 
