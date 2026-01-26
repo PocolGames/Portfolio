@@ -85,9 +85,21 @@ function initializeTabs() {
     const hash = window.location.hash.substring(1) || 'intro';
     const button = document.querySelector(`[data-tab="${hash}"]`);
     if (button) {
+        // 모든 탭 버튼에서 active 제거 후 현재 탭만 활성화
+        tabButtons.forEach(btn => btn.classList.remove('active'));
         button.classList.add('active');
         showPage(hash, false);
     }
+    
+    // 페이지 로드 시에도 hash를 체크하여 올바른 탭 활성화
+    window.addEventListener('load', function() {
+        const currentHash = window.location.hash.substring(1) || 'intro';
+        const currentButton = document.querySelector(`[data-tab="${currentHash}"]`);
+        if (currentButton && !currentButton.classList.contains('active')) {
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            currentButton.classList.add('active');
+        }
+    });
 }
 
 // showTab 함수 - intro 링크용
@@ -98,16 +110,24 @@ window.showTab = function(tabName) {
     }
 };
 
-// 뒤로가기/앞으로가기 처리
+// 뒤로가기/앞으로가기 처리 (기술문서에서 돌아올 때도 처리)
 window.addEventListener('hashchange', function() {
     const hash = window.location.hash.substring(1) || 'intro';
     const button = document.querySelector(`[data-tab="${hash}"]`);
     
-    if (button && !button.classList.contains('active')) {
+    if (button) {
         const tabButtons = document.querySelectorAll('.tab-button');
+        const wasActive = button.classList.contains('active');
+        
+        // 모든 탭에서 active 제거
         tabButtons.forEach(btn => btn.classList.remove('active'));
+        // 현재 탭에 active 추가
         button.classList.add('active');
-        showPage(hash, false);
+        
+        // 이전에 active가 아니었다면 페이지 로드
+        if (!wasActive) {
+            showPage(hash, false);
+        }
     }
 });
 
