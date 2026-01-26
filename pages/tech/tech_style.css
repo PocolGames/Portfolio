@@ -231,13 +231,55 @@ body {
 /* 코드 블록 */
 .code-block {
     margin: 20px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.code-toggle-button {
+    width: 100%;
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.code-toggle-button:hover {
+    background-color: #2c3e50;
+}
+
+.code-toggle-button .toggle-icon {
+    font-size: 1.2em;
+    transition: transform 0.3s;
+}
+
+.code-toggle-button.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.code-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.code-content.active {
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
 }
 
 .code-block pre {
     background-color: #2c3e50;
     color: #ecf0f1;
     padding: 20px;
-    border-radius: 8px;
+    margin: 0;
     overflow-x: auto;
     font-size: 0.9em;
     line-height: 1.6;
@@ -251,9 +293,8 @@ body {
 .code-explanation {
     background-color: #e8f4f8;
     padding: 15px;
-    border-radius: 5px;
     border-left: 4px solid #3498db;
-    margin-top: 15px;
+    margin: 0;
     color: #555;
     font-size: 0.95em;
     line-height: 1.7;

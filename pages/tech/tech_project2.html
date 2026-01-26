@@ -58,14 +58,20 @@
 
                 <!-- 코드 블록 (10줄 정도) -->
                 <div class="code-block">
+                    <button class="code-toggle-button" onclick="toggleCode(this)">
+                        <span>코드 보기</span>
+                        <span class="toggle-icon">▼</span>
+                    </button>
+                    <div class="code-content">
 <pre><code>// C# 코드 예시
 public class ExampleClass
 {
     // 코드 내용
 }
 </code></pre>
-                    <div class="code-explanation">
-                        코드 설명 텍스트
+                        <div class="code-explanation">
+                            코드 설명 텍스트
+                        </div>
                     </div>
                 </div>
             </section>
@@ -85,6 +91,21 @@ public class ExampleClass
         function navigateToProject(url) {
             if (url) {
                 window.location.href = url;
+            }
+        }
+
+        function toggleCode(button) {
+            const codeContent = button.nextElementSibling;
+            const isActive = codeContent.classList.contains('active');
+            
+            if (isActive) {
+                button.classList.remove('active');
+                codeContent.classList.remove('active');
+                button.querySelector('span:first-child').textContent = '코드 보기';
+            } else {
+                button.classList.add('active');
+                codeContent.classList.add('active');
+                button.querySelector('span:first-child').textContent = '코드 숨기기';
             }
         }
 
